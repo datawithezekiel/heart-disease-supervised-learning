@@ -1,44 +1,60 @@
-Heart Disease Prediction Model for Peterside Hospital
+# Heart Disease Risk Prediction
 
-The Project I have Been Working On
+A supervised machine learning model that predicts a patient's risk of heart disease from clinical measurements, framed as a case study for a fictional healthcare provider ("Peterside Hospital") built for portfolio purposes — **not** for real clinical use.
 
-Hi there! 
+## Project Overview
 
-I'm the data scientist recently hired by Peterside Hospital to build this heart disease prediction tool. When Dr. Ikpro first approached me about creating a model that could help identify at-risk patients earlier, I knew this would be a project that could make a real difference in people's lives here in Lagos.
+Using the classic UCI Heart Disease dataset (303 patients, 14 clinical features — demographics, chest pain type, resting ECG, max heart rate, ST depression, number of major vessels, etc.), the project builds and compares several classifiers to flag patients at elevated risk of heart disease, with a particular focus on minimizing false negatives (missed at-risk patients).
 
-Why Peterside Hospital Is Special to Me
-Working at Peterside Hospital has been an incredible experience. Founded in 2000 by the brilliant Dr. Efemena Ikpro, this place has become a healthcare landmark in Lagos. I'm constantly amazed by the dedication of the 300+ healthcare professionals I collaborate with daily. From the cardiology department that's guided my work to the nurses who'll eventually use this tool, everyone shares a commitment to combining compassionate care with cutting-edge technology.
-The Dataset I Worked With
-I started with health records from 303 patients, focusing on 14 key indicators that my research showed were most predictive of heart disease:
-For each patient, I analyzed everything from basic demographics (age, sex) to detailed cardiac measurements. Some of the most revealing features turned out to be chest pain characteristics, ST depression measurements during exercise, and the number of major vessels affected.
-As I explored this data, patterns began emerging that helped shape my approach to building the model.
-How I Built This Model
-After several late nights and many cups of coffee, I tested multiple machine learning approaches to find the algorithm that worked best with our unique patient population. I was particularly focused on minimizing false negatives - we really don't want to miss anyone who might be developing heart disease.
-The breakthrough came when I realized that combining feature engineering specific to cardiovascular indicators with the right algorithm could significantly boost our prediction accuracy.
-Setting Up My Project
+## Methodology
 
-# See what the model predicts
-risk_probability = predict(model, patient_data)
-print(f"Heart Disease Risk: {risk_probability:.2%}")
-Results I'm Proud Of
-After countless iterations and refinements, my model achieved performance metrics that I'm genuinely proud of:
+1. **Exploratory data analysis** — univariate, bivariate, and multivariate analysis of clinical features against the target label.
+2. **Feature engineering & preprocessing** — scaling and preparing features for modeling.
+3. **Model comparison** — Logistic Regression, Random Forest, XGBoost, K-Nearest Neighbors, and SGD classifiers, evaluated on accuracy, precision, recall, F1, and AUC-ROC.
+4. **Model selection** — the best-performing model (Logistic Regression) is reported below.
 
-Accuracy: 85.2%
-Precision: 87.1%
-Recall: 84.4%
-F1-Score: 85.7%
-AUC-ROC: 85.3%
+## Tech Stack
 
-Each percentage point represents potential early interventions that could save lives.
+- Python
+- pandas, NumPy
+- scikit-learn, XGBoost
+- Matplotlib, Seaborn
 
-About Me
-This project represents my commitment to using data science for healthcare advancement in Nigeria. 
+## Repository Structure
 
-With a background in Engineering, IT and Data Science, 
-I'm passionate about creating tools that bridge the gap between cutting-edge AI and practical medical applications.
+```
+.
+├── Peterside Hospital - Heart Disease Predictions.ipynb   # Full analysis: EDA → modeling → evaluation
+└── README.md
+```
 
-Let's Connect!
+## Getting Started
 
-I'm always looking to collaborate with other professionals interested in healthcare AI. 
-If you have questions, suggestions, or just want to chat about the project, reach me at:
-ezekiel.ebuetse@gmail.com
+The notebook expects a `Heart.csv` file (the UCI Heart Disease dataset) in the same folder. **That file isn't included in this repo** — add it before running, e.g. from the [UCI Heart Disease dataset](https://archive.ics.uci.edu/dataset/45/heart+disease) or a Kaggle mirror.
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn xgboost
+jupyter notebook "Peterside Hospital - Heart Disease Predictions.ipynb"
+```
+
+## Results
+
+Best model (Logistic Regression):
+
+| Metric | Score |
+|---|---|
+| Accuracy | 85.2% |
+| Precision | 87.1% |
+| Recall | 84.4% |
+| F1-Score | 85.7% |
+| AUC-ROC | 85.3% |
+
+Full model comparison and confusion matrices are in the notebook.
+
+## Disclaimer
+
+This is an educational/portfolio project using a public, de-identified dataset. It is not a validated medical device and should not be used for real clinical decision-making.
+
+## Author
+
+**Ezekiel Ebuetse** — [GitHub](https://github.com/datawithezekiel) · [LinkedIn](https://linkedin.com/in/ezekiel-ebuetse) · [Portfolio](https://ezekielebuetse.com)
