@@ -2,6 +2,14 @@
 
 A supervised machine learning model that predicts a patient's risk of heart disease from clinical measurements, framed as a case study for a fictional healthcare provider ("Peterside Hospital") built for portfolio purposes — **not** for real clinical use.
 
+![Logistic Regression Confusion Matrix](heart_disease_confusion_matrix.png)
+
+## Key Findings
+
+- **85.2% accuracy** and **85.3% AUC-ROC** on held-out test data with the best-performing model (Logistic Regression), compared across 5 classifiers (Logistic Regression, Random Forest, XGBoost, KNN, SGD).
+- **84.4% recall** — correctly flagged 27 of 32 at-risk patients in the test set, with a particular focus on minimizing missed diagnoses (false negatives).
+- Full EDA, feature engineering, and model comparison (accuracy, precision, recall, F1, AUC-ROC) across all 5 classifiers are documented in the notebook.
+
 ## Project Overview
 
 Using the classic UCI Heart Disease dataset (303 patients, 14 clinical features — demographics, chest pain type, resting ECG, max heart rate, ST depression, number of major vessels, etc.), the project builds and compares several classifiers to flag patients at elevated risk of heart disease, with a particular focus on minimizing false negatives (missed at-risk patients).
@@ -24,7 +32,8 @@ Using the classic UCI Heart Disease dataset (303 patients, 14 clinical features 
 
 ```
 .
-├── Peterside Hospital - Heart Disease Predictions.ipynb   # Full analysis: EDA → modeling → evaluation
+├── Peterside Hospital - Heart Disease Predictions.ipynb # Full analysis: EDA → modeling → evaluation
+├── heart_disease_confusion_matrix.png                   # Confusion matrix used in this README
 └── README.md
 ```
 
